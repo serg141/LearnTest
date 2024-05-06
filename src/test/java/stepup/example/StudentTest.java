@@ -49,10 +49,20 @@ public class StudentTest {
     }
 
     @Test
-    public void checkStudentObjNullTest() {
+    public void checkStudentNotNullTest() {
         assertNotEquals(null, student);
-        Assertions.assertTrue(student.equals(student));
-        assertNotEquals(student, student.getClass());
+    }
+
+    @Test
+    public void checkStudentEqualsTest() {
+        Student student2 = new Student("Sergey");
+        Assertions.assertTrue(student2.equals(student));
+    }
+
+    @Test
+    public void checkStudentNotEqualsTest() {
+        Student student2 = new Student("Tom");
+        Assertions.assertFalse(student2.getName().equals(student.getName()));
     }
 
     @Test
@@ -60,4 +70,3 @@ public class StudentTest {
         Assertions.assertEquals("Student{name=Sergey, marks=[]}", student.toString());
     }
 }
-
